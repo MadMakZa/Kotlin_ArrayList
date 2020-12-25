@@ -3,6 +3,7 @@ package com.example.kotlin_arraylist
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.ArrayAdapter
+import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
@@ -24,5 +25,10 @@ class MainActivity : AppCompatActivity() {
         val adapter = ArrayAdapter(this, android.R.layout.simple_list_item_1, nameList)
         listView.adapter = adapter
 
+        //слушатель нажатий для каждого элемента массива
+        listView.setOnItemClickListener{parent, view, position, id ->
+
+            Toast.makeText(this, "Pressed item $position", Toast.LENGTH_SHORT).show()
+        }
     }
 }
